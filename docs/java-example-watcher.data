@@ -1,0 +1,70 @@
+log4j:WARN No appenders could be found for logger (org.apache.zookeeper.ZooKeeper).
+log4j:WARN Please initialize the log4j system properly.
+===========EXECUTOR START TO WAIT===========
+GOT EVENT WatchedEvent state:SyncConnected type:None path:null @Mon Aug 05 23:20:57 CST 2013,type is None
+STAT CALL BACK
+rc 0
+path /yangqi_test
+ctx null
+stat 50,87,1370071429523,1375715100426,8,0,0,0,8,0,50
+
+GET DATA OF new-data
+GET DATA END 
+===SHOW DATA===
+new-data
+Starting child
+===========START TO WRITE===========
+===========START TO WRITE===========
+===========STOP TO WRITE===========
+Mon Aug  5 23:20:57 CST 2013
+===========STOP TO WRITE===========
+
+
+
+
+
+
+
+
+
+
+
+GOT EVENT WatchedEvent state:SyncConnected type:NodeDataChanged path:/yangqi_test @Mon Aug 05 23:30:53 CST 2013,type is NodeDataChanged
+STAT CALL BACK
+rc 0
+path /yangqi_test
+ctx null
+stat 50,92,1370071429523,1375716653738,9,0,0,0,8,0,50
+
+GET DATA OF new-data
+GET DATA END 
+
+
+
+GOT EVENT WatchedEvent state:SyncConnected type:NodeDeleted path:/yangqi_test @Mon Aug 05 23:33:45 CST 2013,type is NodeDeleted
+STAT CALL BACK
+rc -101
+path /yangqi_test
+ctx null
+stat null
+Killing process
+
+
+GOT EVENT WatchedEvent state:SyncConnected type:NodeCreated path:/yangqi_test @Mon Aug 05 23:36:48 CST 2013,type is NodeCreated
+STAT CALL BACK
+rc 0
+path /yangqi_test
+ctx null
+stat 94,94,1375717008921,1375717008921,0,0,0,0,4,0,94
+
+GET DATA OF data
+GET DATA END 
+===SHOW DATA===
+data
+Starting child
+===========START TO WRITE===========
+===========START TO WRITE===========
+Mon Aug  5 23:36:48 CST 2013
+===========STOP TO WRITE===========
+===========STOP TO WRITE===========
+

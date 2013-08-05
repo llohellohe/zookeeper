@@ -8,6 +8,7 @@
 package yangqi.code;
 
 import java.util.Arrays;
+import java.util.Date;
 
 import org.apache.zookeeper.AsyncCallback.StatCallback;
 import org.apache.zookeeper.KeeperException;
@@ -45,7 +46,7 @@ public class DataMonitor implements Watcher, StatCallback {
 
     public void process(WatchedEvent event) {
         String path = event.getPath();
-        System.out.println("GOT EVENT " + event);
+        System.out.println("GOT EVENT " + event + " @" + new Date() + ",type is " + event.getType());
         if (event.getType() == Event.EventType.None) {
             // We are are being told that the state of the
             // connection has changed
@@ -100,6 +101,7 @@ public class DataMonitor implements Watcher, StatCallback {
                 exists = true;
                 break;
             case Code.NoNode:
+                // 删除结点的时候
                 exists = false;
                 break;
             case Code.SessionExpired:
@@ -124,7 +126,8 @@ public class DataMonitor implements Watcher, StatCallback {
             } catch (InterruptedException e) {
                 return;
             }
-            System.out.println("DATA GET OF " + new String(b));
+            System.out.println("GET DATA OF " + new String(b));
+            System.out.println("GET DATA END ");
         }
         if ((b == null && b != prevData) || (b != null && !Arrays.equals(prevData, b))) {
             listener.exists(b);
