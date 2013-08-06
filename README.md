@@ -8,4 +8,4 @@ zookeeper
 
 [Watcher的简单例子](https://github.com/llohellohe/zookeeper/blob/master/docs/java-example.md)
 
-[Watcher例子的类图](http://)
+[Watcher例子的类图](https://raw.github.com/llohellohe/zookeeper/master/docs/class-java-example.png)
