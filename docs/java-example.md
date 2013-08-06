@@ -1,4 +1,6 @@
+###ZooKeeper Watcher代码实例
 
+#####主要的相关类和接口
 `Executor` 实现了`Wathcer`接口、`Runnable`接口、`DataMonitorListener`接口。
 
 通过connectString 监视ZooKeeper的一个ZNode。
@@ -9,15 +11,17 @@
 
 DataMonitor处理ZNode发生变化时的process，以及处理StatCallback的回调方法。
 
-###Watcher接口
-Watcher接口定义了process(WatchedEvent event) 方法
+#####Watcher接口
+Watcher接口定义了process(WatchedEvent event) 方法，以及定义了接口Event。
 
-###WatchedEvent
+接口Event中定义了KeeperState和EventType。
+
+#####WatchedEvent
 WatchedEvent由KeeperState、EventType和path组成。
 
-它代表当前ZooKepper的连接状态，并且提供发生时间的znode路径以及时间类型。
+它代表当前ZooKepper的连接状态，并且提供发生事件的znode路径以及时间类型。
 
-其中KeeperState代表ZooKeeper的连接状态为：
+其中KeeperState代表ZooKeeper的连接状态，分别为：
 
 1.	Disconnected
 2.	NoSyncConnected
@@ -28,15 +32,15 @@ WatchedEvent由KeeperState、EventType和path组成。
 7.	Expired
 
 
-EventType分别为：
+EventType代表node的状态变更，分别为：
 
 1.	None
 2.	NodeCreated
 3.	NodeDeleted
-4.	NodeDataChanged
+4.	NodeDataChanged，就算设置重复的数据也会有该事件
 5.	NodeChildrenChanged
 
-###AsyncCallback接口
+#####AsyncCallback接口
 StatCallback接口是AsyncCallback的一种。
 
 AsyncCallback一共定义了如下几个CallBack
