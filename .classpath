@@ -2,13 +2,17 @@
 <classpath>
 	<classpathentry including="**/*.java" kind="src" output="target/test-classes" path="src/test/java"/>
 	<classpathentry including="**/*.java" kind="src" path="src/main/java"/>
+	<classpathentry kind="src" path="src/main/resources"/>
+	<classpathentry kind="var" path="M2_REPO/javax/mail/mail/1.4/mail-1.4.jar" sourcepath="M2_REPO/javax/mail/mail/1.4/mail-1.4-sources.jar"/>
+	<classpathentry kind="var" path="M2_REPO/javax/activation/activation/1.1/activation-1.1.jar" sourcepath="M2_REPO/javax/activation/activation/1.1/activation-1.1-sources.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="var" path="M2_REPO/junit/junit/3.8.1/junit-3.8.1.jar" sourcepath="M2_REPO/junit/junit/3.8.1/junit-3.8.1-sources.jar"/>
+	<classpathentry kind="var" path="M2_REPO/jline/jline/0.9.94/jline-0.9.94.jar" sourcepath="M2_REPO/jline/jline/0.9.94/jline-0.9.94-sources.jar"/>
 	<classpathentry kind="lib" path="/Users/yangqi/opensource/zookeeper-3.4.5/zookeeper-3.4.5.jar"/>
-	<classpathentry kind="lib" path="/Users/yangqi/opensource/zookeeper-3.4.5/lib/slf4j-log4j12-1.6.1.jar"/>
-	<classpathentry kind="lib" path="/Users/yangqi/opensource/zookeeper-3.4.5/lib/slf4j-api-1.6.1.jar"/>
-	<classpathentry kind="lib" path="/Users/yangqi/opensource/zookeeper-3.4.5/lib/netty-3.2.2.Final.jar"/>
-	<classpathentry kind="lib" path="/Users/yangqi/opensource/zookeeper-3.4.5/lib/log4j-1.2.15.jar"/>
 	<classpathentry kind="lib" path="/Users/yangqi/opensource/zookeeper-3.4.5/lib/jline-0.9.94.jar"/>
+	<classpathentry kind="lib" path="/Users/yangqi/opensource/zookeeper-3.4.5/lib/log4j-1.2.15.jar"/>
+	<classpathentry kind="lib" path="/Users/yangqi/opensource/zookeeper-3.4.5/lib/netty-3.2.2.Final.jar"/>
+	<classpathentry kind="lib" path="/Users/yangqi/opensource/zookeeper-3.4.5/lib/slf4j-api-1.6.1.jar"/>
+	<classpathentry kind="lib" path="/Users/yangqi/opensource/zookeeper-3.4.5/lib/slf4j-log4j12-1.6.1.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
