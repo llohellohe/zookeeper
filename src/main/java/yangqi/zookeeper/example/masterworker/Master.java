@@ -38,10 +38,6 @@ public class Master implements Watcher, Runnable {
         this.serverId = serverId;
     }
 
-    /*
-     * (non-Javadoc)
-     * @see org.apache.zookeeper.Watcher#process(org.apache.zookeeper.WatchedEvent)
-     */
     @Override
     public void process(WatchedEvent event) {
         System.out.println(event);
@@ -51,7 +47,6 @@ public class Master implements Watcher, Runnable {
         try {
             zk = new ZooKeeper(connectString, 2000, this);
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
@@ -60,21 +55,17 @@ public class Master implements Watcher, Runnable {
         try {
             zk.close();
         } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
 
     public void createMaterNode(){
-        String response = null;
         try {
-            response = zk.create(MASTER_PATH, serverId.getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE,
+            zk.create(MASTER_PATH, serverId.getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE,
                                         CreateMode.EPHEMERAL);
-
         } catch (KeeperException | InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println(serverId + " response is " + response);
     }
 
     public boolean checkForMaster() {
@@ -82,11 +73,9 @@ public class Master implements Watcher, Runnable {
         Stat stat=new Stat();
         byte[] data = null;
         try {
-            data = zk.getData("/master", false, stat);
-            System.out.println(serverId + " stat return " + new String(data));
+            data = zk.getData(MASTER_PATH, false, stat);
             return serverId.equals(new String(data));
         } catch (KeeperException | InterruptedException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
@@ -94,25 +83,44 @@ public class Master implements Watcher, Runnable {
     }
 
     public boolean registerForMaster() {
-        int count = 1;
+
         boolean isLeader = false;
         while (true) {
-            System.out.println(serverId + " start to check count " + count++);
             if (!checkForMaster()) {
                 createMaterNode();
-                try {
-                    Thread.sleep(5000);
-                } catch (InterruptedException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
+                sleep(5);
             } else {
                 isLeader = true;
-                System.out.println(serverId + " master registered with " + serverId);
+                log(" master registered with ");
                 break;
             }
         }
         return isLeader;
+    }
+
+
+    @Override
+    public void run() {
+
+        startZK();
+
+        boolean isLeader = registerForMaster();
+        if (isLeader) {
+            stopZK();
+        }
+
+    }
+
+    private void sleep(int seconds) {
+        try {
+            Thread.sleep(1000 * seconds);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void log(String msg) {
+        System.out.println(String.format("serverId %s %s", serverId, msg));
     }
 
     public static void main(String[] args) throws InterruptedException {
@@ -121,35 +129,6 @@ public class Master implements Watcher, Runnable {
         for (int i = 0; i < masterCount; i++) {
             Master master = new Master("localhost:2181", "o2-" + i);
             service.submit(master);
-        }
-
-    }
-
-    /*
-     * (non-Javadoc)
-     * @see java.lang.Runnable#run()
-     */
-    @Override
-    public void run() {
-        try {
-            Thread.sleep(1000 * 1);
-        } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        startZK();
-
-        boolean isLeader = registerForMaster();
-        if (isLeader) {
-            stopZK();
-        } else {
-        try {
-                Thread.sleep(1000 * 10);
-        } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-            stopZK();
         }
 
     }
