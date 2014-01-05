@@ -16,4 +16,6 @@ zookeeper
 ####三.深入
 [分布式一致性算法Paxos](http://www.hiyangqi.com/%E5%88%86%E5%B8%83%E5%BC%8F/paxos.html)
 
+[源代码解读之ZooKeeper](http://www.hiyangqi.com/%E5%88%86%E5%B8%83%E5%BC%8F/read-zookeeper-source-code-zookeeper.html)
+
 
