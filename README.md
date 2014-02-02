@@ -22,4 +22,6 @@ zookeeper
 
 [源代码解读之ClientCnxnSocketNIO](http://www.hiyangqi.com/%E5%88%86%E5%B8%83%E5%BC%8F/read-zookeeper-source-code-nio-socket.html)
 
+[源代码解读之Jute生成传输协议消息体](https://github.com/llohellohe/llohellohe.github.com/tree/master/readers/ZooKeeper/11-传输协议.md)
+
 
