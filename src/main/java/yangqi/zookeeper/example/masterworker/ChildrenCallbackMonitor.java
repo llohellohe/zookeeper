@@ -48,8 +48,9 @@ public class ChildrenCallbackMonitor {
 
         zookeeper.getChildren("/workers", watcher, callback, null);
 
+        System.out.println("begin finish");
+        Thread.sleep(200000);
         System.out.println("finish");
-        // Thread.sleep(200000);
 
     }
 
