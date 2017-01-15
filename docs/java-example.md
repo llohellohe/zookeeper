@@ -1,13 +1,13 @@
 ###ZooKeeper Watcher代码实例
 
 #####主要的相关类和接口
-`Executor` 实现了`Wathcer`接口、`Runnable`接口、`DataMonitorListener`接口。
+`Executor` 实现了`Watcher`接口、`Runnable`接口、`DataMonitorListener`接口。
 
 通过connectString 监视ZooKeeper的一个ZNode。
 
 当ZNode发生事件变化时，通过process(WatchedEvent event)方法调用DataMonitor的process(WatchedEvent event)方法。
 
-`DataMonitor`实现了`Wathcer`接口和`StatCallback`接口。
+`DataMonitor`实现了`Watcher`接口和`StatCallback`接口。
 
 DataMonitor处理ZNode发生变化时的process，以及处理StatCallback的回调方法。
 
