@@ -14,13 +14,13 @@ zookeeper
 [按章节笔记](https://github.com/llohellohe/llohellohe.github.com/tree/master/readers/ZooKeeper)
 
 ####三.深入
-[分布式一致性算法Paxos](http://www.hiyangqi.com/%E5%88%86%E5%B8%83%E5%BC%8F/paxos.html)
+[分布式一致性算法Paxos](https://github.com/llohellohe/llohellohe.github.com/blob/master/_posts/2014-01-04-paxos.md)
 
-[源代码解读之ZooKeeper](http://www.hiyangqi.com/%E5%88%86%E5%B8%83%E5%BC%8F/read-zookeeper-source-code-zookeeper.html)
+[源代码解读之ZooKeeper](https://github.com/llohellohe/llohellohe.github.com/blob/master/_posts/2014-01-04-read-zookeeper-source-code-zookeeper.md)
 
-[源代码解读之ClientCnxn](http://www.hiyangqi.com/%E5%88%86%E5%B8%83%E5%BC%8F/read-zookeeper-source-code-client-cnxn.html)
+[源代码解读之ClientCnxn](https://github.com/llohellohe/llohellohe.github.com/blob/master/_posts/2014-01-06-read-zookeeper-source-code-client-cnxn.md)
 
-[源代码解读之ClientCnxnSocketNIO](http://www.hiyangqi.com/%E5%88%86%E5%B8%83%E5%BC%8F/read-zookeeper-source-code-nio-socket.html)
+[源代码解读之ClientCnxnSocketNIO](https://github.com/llohellohe/llohellohe.github.com/blob/master/_posts/2014-02-02-read-zookeeper-source-code-nio-socket.md)
 
 [源代码解读之Jute生成传输协议消息体](https://github.com/llohellohe/llohellohe.github.com/tree/master/readers/ZooKeeper/11-传输协议.md)
 
