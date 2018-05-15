@@ -1,9 +1,9 @@
-####ZooKeeper简介
+#### ZooKeeper简介
 ZooKeeper的目的，为分布式应用提供分布式的协同服务。
 
 zk提供了一组原语，分布式系统可以根据这组原语构建更高级别的服务：比如同步、配置维护、组和命名。
 
-#####文件系统和通知机制
+##### 文件系统和通知机制
 ZooKeeper的ZNode类似于文件系统，只不过每个节点还可以额外存放数据。
 
 当节点发生变化时（创建、删除、数据变更），可以通知各个客户端。
@@ -18,21 +18,21 @@ ZooKeeper的ZNode类似于文件系统，只不过每个节点还可以额外存
 
 zk提供的原语包含：
 
-1.	create
-2.	delete
-3.	exists
-4.	get data
-5.	set data
-6.	get chiledren
-7.	sync
+1. create
+2. delete
+3. exists
+4. get data
+5. set data
+6. get chiledren
+7. sync
 
-####设计目标
-1.	足够简单：结构类似文件系统的（结点可以带数据，但是不能太大）
-2.	冗余：保证可靠性
-3.	顺序
-4.	快：基于内存的操作
+#### 设计目标
+1. 足够简单：结构类似文件系统的（结点可以带数据，但是不能太大）
+2. 冗余：保证可靠性
+3. 顺序
+4. 快：基于内存的操作
 
-####保证
+#### 保证
 
 ZooKeeper保证了：
 
@@ -42,7 +42,7 @@ ZooKeeper保证了：
   4. 实时性
   5. 单一系统镜像(single system image)：不管连接到zk集群的那台机器，客户端看到的视图都是一致的
 
-####实现
+#### 实现
 ZooKeeper的组件包含：
 
 ![image](http://zookeeper.apache.org/doc/trunk/images/zkcomponents.jpg)
@@ -53,7 +53,7 @@ ZooKeeper的组件包含：
 
 读的时候，会从各自server的内存数据库中读数据，写则是通过一致性协议完成（leader/follwer）的。
 
-####参考资料：
+#### 参考资料：
 
 1.	[Zookeeper的应用场景](http://ronghao.iteye.com/blog/1461798)
 
